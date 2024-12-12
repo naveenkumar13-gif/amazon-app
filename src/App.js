@@ -7,14 +7,16 @@ import PageNotFound from "./Pages/PageNotFound";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="login" element={<Login />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="bg-slate-300">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="login" element={<Login />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
