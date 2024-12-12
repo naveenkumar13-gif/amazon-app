@@ -4,51 +4,59 @@ import Logo from "./Logo";
 import { IoIosSearch } from "react-icons/io";
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
 
+const SpanStyle =
+  "flex flex-col items-center hover:text-stone-500 transition-all duration-300";
 function Nav() {
   return (
-    <div className="flex justify-evenly items-center bg-[#040406]  gap-8  px-4">
+    <div className="flex justify-between items-center bg-[#040406]  gap-8  px-4 sticky top-0 z-50">
       <ul>
         <li>
           <Logo />
         </li>
       </ul>
 
-      <ul className="flex  items-center text-white   bg-orange-600 w-full ">
+      <ul className="flex justify-between items-center text-white   ">
         <input
           type="text"
           placeholder="search"
-          className="w-full border-none "
+          className=" w-56 max-md:focus:w-72  transition-all duration-300 border-none  placeholder:text-stone-500 focus:ring
+            px-4 py-2 hover:bg-stone-200 focus:ring-stone-400 focus:outline-none 
+           "
         />
-        <IoIosSearch className="m-1" />
+        {/* <IoIosSearch className="" /> */}
       </ul>
 
-      <ul className="flex items-center text-white gap-2">
+      <ul className="flex items-center text-white gap-4 max-md:hidden">
         <Link to="/">
-          <div className="flex flex-col gap-0">
+          <div className={SpanStyle}>
             <span className="text-[10px] text-stone-400 ">Hello</span>
-            <span className="">sign</span>
+            <span className="text-lg">sign </span>
           </div>
         </Link>
         <li>
           <Link to="/login">
-            <div className="flex flex-col">
-              <span className="text-[10px]  text-stone-400">Return</span>
-              <span className="">&Orders</span>
+            <div className={SpanStyle}>
+              <span className="text-[10px]  text-stone-400   ">Return</span>
+              <span className="">Orders</span>
             </div>
           </Link>
         </li>
         <li>
-          <Link to="/checkout">
-            <div className="flex flex-col">
-              <span className="text-[10px] text-stone-400 ">Your</span>
+          <Link>
+            <div className={SpanStyle}>
+              <span className="text-[10px] text-stone-400  ">Your</span>
               <span className="">Prime</span>
             </div>
           </Link>
         </li>
-        <li className="text-lg">
+        <Link
+          to="/checkout"
+          className="flex text-2xl items-center gap-1 hover:text-stone-500 transition-all duration-500 "
+        >
           <MdOutlineLocalGroceryStore />
+          <span className="text-sm">0</span>
           <div></div>
-        </li>
+        </Link>
       </ul>
     </div>
   );

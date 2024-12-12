@@ -6,7 +6,7 @@ function Logo() {
   return (
     <div>
       <Link to="/">
-        <li className="w-[100px] cursor-pointer object-contain">
+        <li className="w-[100px] cursor-pointer object-contain ">
           <img src={logo} alt="logo" className="w-full h-full" />
         </li>
       </Link>
