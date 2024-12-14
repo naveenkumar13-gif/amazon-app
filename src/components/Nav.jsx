@@ -8,14 +8,14 @@ const SpanStyle =
   "flex flex-col items-center hover:text-stone-500 transition-all duration-300";
 function Nav() {
   return (
-    <div className="flex justify-between items-center bg-[#040406]  gap-8  px-4 py-2 sticky top-0 z-50">
+    <div className="flex justify-evenly items-center bg-[#131921]  h-[60px]  px-4 py-2 sticky top-0 z-50 gap-4">
       <ul>
         <li>
           <Logo />
         </li>
       </ul>
 
-      <ul className="flex justify-between items-center text-white flex-grow ">
+      <ul className="flex justify-between items-center flex-grow ">
         <input
           type="text"
           placeholder="search"
@@ -23,7 +23,7 @@ function Nav() {
             px-4 py-2 hover:bg-stone-200 focus:outline-none 
            "
         />
-        <IoIosSearch className="bg-orange-400  hover:bg-orange-500 h-[40px] w-[50px] text-blue-950" />
+        <IoIosSearch className="bg-[#cd9042]  hover:bg-orange-500 h-[40px] w-[50px] text-blue-950 transition-colors duration-300" />
       </ul>
 
       <ul className="flex items-center text-white gap-4 max-md:hidden">
@@ -58,6 +58,17 @@ function Nav() {
           <div></div>
         </Link>
       </ul>
+    </div>
+  );
+}
+export function Banner() {
+  return (
+    <div className="w-[95%] m-auto  -z-10 -mb-36 ">
+      <img
+        src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
+        alt="heraderImage"
+        className=" w-full  "
+      />
     </div>
   );
 }

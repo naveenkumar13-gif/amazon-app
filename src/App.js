@@ -7,7 +7,7 @@ import PageNotFound from "./Pages/PageNotFound";
 
 function App() {
   return (
-    <div className="bg-slate-300">
+    <div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
