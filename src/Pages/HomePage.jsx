@@ -6,9 +6,8 @@ function HomePage() {
   return (
     <div className="bg-stone-200">
       <Hearder />
-      <div className="flex justify-center w-[90%] m-auto  gap-4 max-lg:flex-wrap">
+      <div className="flex justify-center w-[90%] m-auto  gap-4 ">
         <Product
-          className="w-[30%]"
           id="12321341"
           title="The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback"
           price={11.96}
@@ -23,7 +22,7 @@ function HomePage() {
           image="https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
         />
       </div>
-      <div className="flex justify-center w-[90%] m-auto gap-4 max-md:gap-0 mt-4 max-lg:flex-wrap">
+      <div className="flex justify-center w-[90%] m-auto gap-4 max-md:gap-0 mt-4 ">
         <Product
           id="4903850"
           title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor"
@@ -46,7 +45,7 @@ function HomePage() {
           image="https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
         />
       </div>
-      <div className="flex justify-center items-center w-[60%] m-auto gap-4 mt-4 max-lg:flex-wrap">
+      <div className="flex justify-center items-center w-[60%] m-auto gap-4 mt-4 ">
         <Product
           id="90829332"
           title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
