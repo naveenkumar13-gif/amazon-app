@@ -4,7 +4,7 @@ import SubTotal from "../components/SubTotal";
 
 function Checkout() {
   return (
-    <div>
+    <div className="bg-stone-100 ">
       <Nav />
       {/* left */}
       <div className="flex p-5 bg-white h-max">

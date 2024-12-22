@@ -7,7 +7,7 @@ import PageNotFound from "./Pages/PageNotFound";
 
 function App() {
   return (
-    <div>
+    <div className="bg-stone-100">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />

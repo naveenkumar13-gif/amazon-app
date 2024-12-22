@@ -4,7 +4,7 @@ import Hearder from "../components/Hearder";
 
 function HomePage() {
   return (
-    <div className="bg-stone-200">
+    <div>
       <Hearder />
       <div className="flex justify-center w-[90%] m-auto  gap-4 ">
         <Product
