@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 const SpanStyle =
   "flex flex-col items-center hover:text-stone-500 transition-all duration-300";
 function Nav() {
+  // -------------------------------- store --> action == actionSlice----cart
   const AddTocart = useSelector((store) => store.action.cart);
   return (
     <div className="flex justify-evenly items-center bg-[#131921]  h-[60px]  px-4 py-2 sticky top-0 z-50 gap-4">
