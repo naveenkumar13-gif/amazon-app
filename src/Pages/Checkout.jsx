@@ -2,9 +2,10 @@ import React from "react";
 import Nav from "../components/Nav";
 import SubTotal from "../components/SubTotal";
 import { useSelector } from "react-redux";
+import CheckOutItem from "../components/CheckOutItem";
 
 function Checkout() {
- 
+  const ProductCart = useSelector((store) => store.action.cart);
 
   return (
     <div className="bg-stone-100 ">
@@ -21,10 +22,16 @@ function Checkout() {
             <h2 className="mr-2.5 p-2.5 border-b border-gray-400">
               Your Shoping Cart
             </h2>
-            {/* cart Item */}
-            {/* cart Item */}
-            {/* cart Item */}
-            {/* cart Item */}
+            {ProductCart.map((item) => (
+              <CheckOutItem
+                id={item.id}
+                title={item.title}
+                image={item.image}
+                price={item.price}
+                rating={item.rating}
+                key={item.id}
+              />
+            ))}
           </div>
         </div>
         {/* right */}
