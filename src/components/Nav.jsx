@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { IoIosSearch } from "react-icons/io";
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
+import { useSelector } from "react-redux";
 
 const SpanStyle =
   "flex flex-col items-center hover:text-stone-500 transition-all duration-300";
 function Nav() {
+  const AddTocart = useSelector((store) => store.action.cart);
   return (
     <div className="flex justify-evenly items-center bg-[#131921]  h-[60px]  px-4 py-2 sticky top-0 z-50 gap-4">
       <ul>
@@ -54,7 +56,7 @@ function Nav() {
           className="flex text-2xl items-center gap-1 hover:text-stone-500 transition-all duration-500 "
         >
           <MdOutlineLocalGroceryStore />
-          <span className="text-sm">0</span>
+          <span className="text-sm">{AddTocart?.length}</span>
           <div></div>
         </Link>
       </ul>

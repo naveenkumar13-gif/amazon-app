@@ -1,8 +1,11 @@
 import React from "react";
 import Nav from "../components/Nav";
 import SubTotal from "../components/SubTotal";
+import { useSelector } from "react-redux";
 
 function Checkout() {
+ 
+
   return (
     <div className="bg-stone-100 ">
       <Nav />
