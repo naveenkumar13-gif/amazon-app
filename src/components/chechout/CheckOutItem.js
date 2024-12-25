@@ -28,7 +28,7 @@ function CheckOutItem({ id, title, image, price, rating }) {
         </div>
         <button
           className="bg-yellow-400 border px-1 py-1 rounded-lg border-none w-36 m-auto hover:bg-yellow-300 transition-colors duration-700 cursor-pointer mt-4 focus:ring-yellow-500 focus:ring-2 "
-          onClick={() => dispatch(removeCart(id))}
+          onClick={() =>console.log("remoe")}
         >
           Delete Cart
         </button>

@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../components/Nav";
+import Nav from "../components/nav/Nav";
 import SubTotal from "../components/Subtotal/SubTotal";
 import { useSelector } from "react-redux";
 import CheckOutItem from "../components/chechout/CheckOutItem";

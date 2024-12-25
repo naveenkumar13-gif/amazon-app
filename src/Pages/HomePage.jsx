@@ -1,6 +1,6 @@
 import React from "react";
 import Product from "../components/Product/Product";
-import Hearder from "../components/Hearder";
+import Hearder from "../components/header/Hearder";
 
 function HomePage() {
   return (
