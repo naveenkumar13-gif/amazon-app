@@ -25,23 +25,23 @@ function Login() {
           <h5 className="mb-1">Password</h5>
           <input
             type="password"
-            className="h-[30px] mb-2 bg-white w-full border-stone-950"
+            className="h-[30px] mb-2 bg-white w-full border border-stone-950"
           />
 
           <button
             type="submit"
-            className="bg-[#f0c14b] border border-solid border-[#a88734] border-t-[#9c7e31] border-b-[#846a29] rounded-[2px] w-full h-[30px] mt-2"
+            className="bg-[#f0c14b] border border-solid border-[#a88734] border-t-[#9c7e31] border-b-[#846a29] rounded-[2px] w-full py-[0.5rem] mt-2"
           >
             Sign In
           </button>
         </form>
-        <p className="text-xs mt-4">
-          By signing-in you agree to the AMAZON FAKE CLONE Conditions of Use &
-          Sale. Please see our Privacy Notice, our Cookies Notice and our
+        <p className="text-xs leading-relaxed mt-4">
+          By signing-in you agree to the AMAZON APP Conditions of Use & Sale.
+          Please see our Privacy Notice, our Cookies Notice and our
           Interest-Based Ads Notice.
         </p>
 
-        <button className="w-full h-[30px] mt-2 border border-darkgray rounded-[2px]">
+        <button className="w-full h-[30px] mt-2 border border-darkgray rounded-[2px] hover:bg-slate-200 ease-in-out transition-colors duration-700 font-semibold">
           Create your Amazon Account
         </button>
       </div>
