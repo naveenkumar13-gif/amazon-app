@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import CheckOutItem from "../components/CheckOutItem";
 
 function Checkout() {
+  // --------------- store --> action == actionSlice ----cart [push into cart]
   const ProductCart = useSelector((store) => store.action.cart);
 
   return (
@@ -19,9 +20,10 @@ function Checkout() {
             className="w-full mb-2"
           />
           <div>
-            <h2 className="mr-2.5 p-2.5 border-b border-gray-400">
+            <h2 className="mr-2.5 p-2.5 border-b border-[#dddddd]">
               Your Shoping Cart
             </h2>
+            {/* // store --> action == actionSlice----cart  [push from  cart] */}
             {ProductCart.map((item) => (
               <CheckOutItem
                 id={item.id}

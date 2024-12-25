@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 function SubTotal() {
   const Addcart = useSelector((store) => store.action.cart);
   const Price = useSelector((store) =>
-    //
+    // ------------ store --> action == actionSlice----cart
     store?.action?.cart.reduce((amount, item) => amount + item.price, 0)
   );
   return (

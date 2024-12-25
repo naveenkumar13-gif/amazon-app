@@ -13,7 +13,7 @@ const actionSlice = createSlice({
       console.log(action);
     },
     removeCart(state, action) {
-      state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+      state.cart = state.cart.filter((item) => item.id !== action.payload);
     },
   },
 });
