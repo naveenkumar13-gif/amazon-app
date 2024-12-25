@@ -1,5 +1,5 @@
 import React from "react";
-import Nav, { Banner } from "../components/Nav";
+import Nav, { Banner } from "../Nav";
 
 function Hearder() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { removeCart } from "./feature/ActionSlice";
+import { removeCart } from "../feature/ActionSlice";
 
 function CheckOutItem({ id, title, image, price, rating }) {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "./Logo";
+import Logo from "./Logo/Logo";
 import { IoIosSearch } from "react-icons/io";
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import { useSelector } from "react-redux";

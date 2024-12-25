@@ -1,8 +1,8 @@
 import React from "react";
 import Nav from "../components/Nav";
-import SubTotal from "../components/SubTotal";
+import SubTotal from "../components/Subtotal/SubTotal";
 import { useSelector } from "react-redux";
-import CheckOutItem from "../components/CheckOutItem";
+import CheckOutItem from "../components/chechout/CheckOutItem";
 
 function Checkout() {
   // --------------- store --> action == actionSlice ----cart [push into cart]
