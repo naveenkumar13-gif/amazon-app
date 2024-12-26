@@ -7,6 +7,10 @@ module.exports = {
         "gradient-to-bottom":
           "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
       },
+      colors: {
+        "linear-gradient":
+          "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+      },
     },
   },
   plugins: [
