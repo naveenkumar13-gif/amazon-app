@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {
   updateName,
   updatePassword,
 } from "../components/feature/CustomerSlice";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const inputRef = useRef(null);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,6 +21,9 @@ function Login() {
     navigate("/");
   }
 
+  useEffect(function () {
+    inputRef.current.focus();
+  }, []);
   const username = useSelector((store) => store.customer.usernmae);
 
   function signin() {}
@@ -45,6 +50,7 @@ function Login() {
               placeholder="jones@gmail.com"
               required
               value={email}
+              ref={inputRef}
               onChange={(e) => setEmail(e.target.value)}
               className="h-[30px] mb-2 bg-white w-full border border-stone-950 placeholder:text-xs placeholder:text-slate-600  cursor-pointer p-1.5 text-sm "
             />
