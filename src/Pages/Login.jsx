@@ -1,50 +1,93 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  updateName,
+  updatePassword,
+} from "../components/feature/CustomerSlice";
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!email) return;
+    dispatch(updateName(email));
+    dispatch(updatePassword(password));
+    navigate("/");
+  }
+
+  const username = useSelector((store) => store.customer.usernmae);
+
+  function signin() {}
+
+  function register() {}
   return (
     <div className="bg-white h-screen flex flex-col items-center ">
       <div className="flex">
-        <Link to="/">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
-            alt=""
-            className="w-[100px] my-5 object-contain mx-auto"
-          />
-        </Link>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
+          alt=""
+          className="w-[100px] my-5 object-contain mx-auto"
+        />
       </div>
-      <div className="w-[300px] h-fit flex flex-col rounded-md border border-gray-300 p-5">
-        <h1 className="font-semibold mb-5 text-2xl uppercase">Sign-in</h1>
-        <form>
-          <h5 className="mb-1">E-mail</h5>
-          <input
-            type="text"
-            className="h-[30px] mb-2 bg-white w-full border border-stone-950 "
-          />
+      {username === "" ? (
+        <div className="w-[300px] h-fit flex flex-col rounded-md border border-gray-500 p-5">
+          <h1 className="font-semibold mb-5 text-2xl uppercase text-center">
+            Sign-in
+          </h1>
+          <form onSubmit={handleSubmit}>
+            <h5 className="mb-1">E-mail</h5>
+            <input
+              type="text"
+              placeholder="jones@gmail.com"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="h-[30px] mb-2 bg-white w-full border border-stone-950 placeholder:text-xs placeholder:text-slate-600  cursor-pointer p-1.5 text-sm "
+            />
 
-          <h5 className="mb-1">Password</h5>
-          <input
-            type="password"
-            className="h-[30px] mb-2 bg-white w-full border border-stone-950"
-          />
+            <h5 className="mb-1">Password</h5>
+            <input
+              type="password"
+              placeholder="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              minLength={8}
+              className="h-[30px] mb-2 bg-white w-full border border-stone-950 placeholder:text-xs placeholder:text-slate-600  cursor-pointer p-1.5 text-sm"
+            />
+
+            <button
+              type="submit"
+              onClick={signin}
+              className="bg-[#f0c14b] border border-solid border-[#a88734] border-t-[#9c7e31] border-b-[#846a29] rounded-[2px] w-full py-[0.5rem] mt-2"
+            >
+              Sign In
+            </button>
+          </form>
+          <p className="text-xs leading-relaxed mt-4">
+            By signing-in you agree to the AMAZON APP Conditions of Use & Sale.
+            Please see our Privacy Notice, our Cookies Notice and our
+            Interest-Based Ads Notice.
+          </p>
 
           <button
-            type="submit"
-            className="bg-[#f0c14b] border border-solid border-[#a88734] border-t-[#9c7e31] border-b-[#846a29] rounded-[2px] w-full py-[0.5rem] mt-2"
+            className="w-full h-[30px] mt-2 border border-darkgray rounded-[2px] hover:bg-slate-200 ease-in-out transition-colors duration-700 font-semibold"
+            onClick={register}
           >
-            Sign In
+            Create your Amazon Account
           </button>
-        </form>
-        <p className="text-xs leading-relaxed mt-4">
-          By signing-in you agree to the AMAZON APP Conditions of Use & Sale.
-          Please see our Privacy Notice, our Cookies Notice and our
-          Interest-Based Ads Notice.
-        </p>
-
-        <button className="w-full h-[30px] mt-2 border border-darkgray rounded-[2px] hover:bg-slate-200 ease-in-out transition-colors duration-700 font-semibold">
-          Create your Amazon Account
-        </button>
-      </div>
+        </div>
+      ) : (
+        <Link to="/">
+          <button className="bg-[#f0c14b] rounded-full w-full p-4 text-lg ">
+            continue with {username}
+          </button>
+        </Link>
+      )}
     </div>
   );
 }

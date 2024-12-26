@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import { IoIosSearch } from "react-icons/io";
@@ -8,6 +8,9 @@ import { useSelector } from "react-redux";
 const SpanStyle =
   "flex flex-col items-center hover:text-stone-500 transition-all duration-300";
 function Nav() {
+  const username = useSelector((store) => store.customer.usernmae);
+ 
+
   // -------------------------------- store --> action == actionSlice----cart
   const AddTocart = useSelector((store) => store.action.cart);
   return (
@@ -32,7 +35,7 @@ function Nav() {
       <ul className="flex items-center text-white gap-4 max-md:hidden">
         <Link to="/login">
           <div className={SpanStyle}>
-            <span className="text-[10px] text-stone-400 ">Hello</span>
+            <p className="text-[10px] text-stone-400 ">{username}</p>
             <span className="text-lg">sign In </span>
           </div>
         </Link>
