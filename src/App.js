@@ -10,8 +10,8 @@ function App() {
     <div className="bg-stone-100">
       <BrowserRouter>
         <Routes>
-          <Route path="login" element={<Login />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="login" element={<Login />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

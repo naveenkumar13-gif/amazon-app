@@ -2,12 +2,16 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addCart } from "../feature/ActionSlice";
 
-function Product({ id, title, image, price, rating }) {
+function Product({ title, image, price, rating }) {
   const dispatch = useDispatch();
+
+  function getRandomId() {
+    return Math.floor(Math.random() * 100);
+  }
 
   function handleAddToCart() {
     const newItem = {
-      id,
+      id: getRandomId(),
       title,
       image,
       price,
@@ -25,8 +29,8 @@ function Product({ id, title, image, price, rating }) {
           <div>
             {Array(rating)
               .fill()
-              .map(() => (
-                <span key={id}>⭐</span>
+              .map((_, index) => (
+                <span key={index}>⭐</span>
               ))}
           </div>
         </div>

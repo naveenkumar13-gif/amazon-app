@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import { IoIosSearch } from "react-icons/io";
@@ -9,8 +9,6 @@ const SpanStyle =
   "flex flex-col items-center hover:text-stone-500 transition-all duration-300";
 function Nav() {
   const username = useSelector((store) => store.customer.usernmae);
- 
-
   // -------------------------------- store --> action == actionSlice----cart
   const AddTocart = useSelector((store) => store.action.cart);
   return (
