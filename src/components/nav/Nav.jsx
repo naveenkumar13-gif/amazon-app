@@ -9,12 +9,12 @@ const SpanStyle =
   "flex flex-col items-center hover:text-stone-500 transition-all duration-300";
 function Nav() {
   const inputRef = useRef(null);
-
-  const username = useSelector((store) => store.customer.usernmae);
   useEffect(function () {
     inputRef.current.focus();
   }, []);
+
   // -------------------------------- store --> action == actionSlice----cart
+  const username = useSelector((store) => store.customer.username);
   const AddTocart = useSelector((store) => store.action.cart);
   return (
     <div className="flex justify-evenly items-center bg-[#131921]  h-[60px]  px-4 py-2 sticky top-0 z-50 gap-4">
@@ -43,7 +43,9 @@ function Nav() {
               <p className="text-[10px] text-stone-400 ">
                 {username ? username : "Hello Guest"}
               </p>
-              <span className="text-lg">sign In </span>
+              <span className="text-lg">
+                {username ? "sign Out" : "sign In "}
+              </span>
             </div>
           </Link>
         </li>

@@ -25,7 +25,7 @@ function Login() {
     navigate("/");
   }
 
-  const username = useSelector((store) => store.customer.usernmae);
+  const username = useSelector((store) => store.customer.username);
 
   function signin(e) {
     e.preventDefault();

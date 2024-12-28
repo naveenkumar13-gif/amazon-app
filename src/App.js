@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login";
 import HomePage from "./Pages/HomePage";
 import Checkout from "./Pages/Checkout";
 import PageNotFound from "./Pages/PageNotFound";
+import { auth } from "./Pages/firebase";
+import { useDispatch } from "react-redux";
+import { setUser } from "./components/feature/ActionSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(
+    function () {
+      auth.onAuthStateChanged((authUser) => {
+        console.log("The user is >>>", authUser);
+        if (authUser) {
+          dispatch(setUser(authUser.email));
+          console.log("The user is >>>", authUser.email);
+
+          console.log("The user is >>>", auth + "user");
+        } else {
+          dispatch(setUser(null));
+          console.log("The user is >>>", auth + "user");
+        }
+      });
+    },
+    [dispatch]
+  );
   return (
     <div className="bg-stone-100">
       <BrowserRouter>
