@@ -21,7 +21,7 @@ function Product({ title, image, price, rating }) {
   }
   return (
     <div className=" w-[90%] m-auto flex  ">
-      <div className="bg-white flex justify-center flex-col  h-[500px] z-20 p-6  border boredr-solid hover:shadow-slate-900 transition  duration-500   ">
+      <div className="bg-white flex justify-center flex-col  h-[500px] z-20 p-6  border boredr-solid hover:shadow-xl duration-100  ">
         <p className="text-xl">{title}</p>
         <div className="mt-3">
           <small>$</small>
@@ -34,7 +34,7 @@ function Product({ title, image, price, rating }) {
               ))}
           </div>
         </div>
-        <div className="w-[35%]  m-auto p-4 ">
+        <div className="w-[35%]  m-auto p-4  ">
           <img className="w-full " src={image} alt="" />
         </div>
         <button

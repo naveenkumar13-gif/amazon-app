@@ -7,6 +7,7 @@ import PageNotFound from "./Pages/PageNotFound";
 import { auth } from "./Pages/firebase";
 import { useDispatch } from "react-redux";
 import { setUser } from "./components/feature/ActionSlice";
+import Payment from "./Pages/Payment";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="login" element={<Login />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

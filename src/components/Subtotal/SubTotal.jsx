@@ -1,6 +1,7 @@
 import React from "react";
 import CurrencyFormat from "react-currency-format";
 import { useSelector } from "react-redux";
+import { Outlet, useNavigate } from "react-router-dom";
 
 function SubTotal() {
   const Addcart = useSelector((store) => store.action.cart);
@@ -8,6 +9,11 @@ function SubTotal() {
     // ------------ store --> action == actionSlice----cart
     store?.action?.cart.reduce((amount, item) => amount + item.price, 0)
   );
+  const navigate = useNavigate();
+
+  function handleNavigate() {
+    navigate("/payment");
+  }
   return (
     <>
       <div className="flex flex-col justify-between w-[300px] h-[110px] p-4  bg-[#f3f3f3] border border-solid border-[#dddddd]">
@@ -30,7 +36,10 @@ function SubTotal() {
           prefix={"$"}
         />
 
-        <button className="w-full h-[30px] mt-2 bg-[#f0c14b] rounded-[2px] border border-solid border-[#a88734] text-[#111]">
+        <button
+          className="w-full h-[30px] mt-2 bg-[#f0c14b] rounded-[2px] border border-solid border-[#a88734] text-[#111]"
+          onClick={handleNavigate}
+        >
           Proceed to Checkout
         </button>
       </div>

@@ -29,7 +29,7 @@ function Nav() {
           type="text"
           placeholder="search"
           ref={inputRef}
-          className=" w-[100%]  transition-all duration-300 border-none  placeholder:text-stone-500 focus:ring
+          className=" w-[100%]  transition-all duration-300 border-none  placeholder:text-stone-500 focus:ring-1 focus:ring-stone-500
             px-4 py-2 hover:bg-stone-200 focus:outline-none 
            "
         />
