@@ -5,6 +5,11 @@ import {
   updateName,
   updatePassword,
 } from "../components/feature/CustomerSlice";
+import { auth } from "./firebase"; // import auth from firebase.js
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -22,9 +27,32 @@ function Login() {
 
   const username = useSelector((store) => store.customer.usernmae);
 
-  function signin() {}
+  function signin(e) {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        dispatch(updateName(user.email));
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error signing in: ", error);
+      });
+  }
 
-  function register() {}
+  function register(e) {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        dispatch(updateName(user.email));
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error registering: ", error);
+      });
+  }
+
   return (
     <div className="bg-white h-screen flex flex-col items-center ">
       <div className="flex">
@@ -63,8 +91,8 @@ function Login() {
 
             <button
               type="submit"
-              onClick={signin}
               className="bg-[#f0c14b] border border-solid border-[#a88734] border-t-[#9c7e31] border-b-[#846a29] rounded-[2px] w-full py-[0.5rem] mt-2"
+              onClick={signin}
             >
               Sign In
             </button>
