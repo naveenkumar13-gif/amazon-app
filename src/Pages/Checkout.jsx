@@ -12,7 +12,7 @@ function Checkout() {
   return (
     <div className="bg-stone-100 ">
       <Nav />
-      {/* left */}
+
       <div className="flex p-5 bg-white h-max">
         <div>
           <img
@@ -38,7 +38,7 @@ function Checkout() {
             ))}
           </div>
         </div>
-        {/* right */}
+     
         <div>
           <SubTotal />
         </div>
