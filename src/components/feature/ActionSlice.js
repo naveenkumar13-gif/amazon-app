@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { FcEmptyBattery } from "react-icons/fc";
 
 const initialState = {
   cart: [],
@@ -19,8 +20,11 @@ const actionSlice = createSlice({
     setUser(state, action) {
       state.user = action.payload;
     },
+    emptyCart(state) {
+      state.cart = [];
+    },
   },
 });
 
-export const { addCart, removeCart, setUser } = actionSlice.actions;
+export const { addCart, removeCart, setUser, emptyCart } = actionSlice.actions;
 export default actionSlice.reducer;

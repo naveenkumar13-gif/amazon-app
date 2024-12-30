@@ -4,6 +4,7 @@ import Login from "./Pages/Login";
 import HomePage from "./Pages/HomePage";
 import Checkout from "./Pages/Checkout";
 import PageNotFound from "./Pages/PageNotFound";
+import Order from "./Pages/Order";
 import { auth } from "./Pages/firebase";
 import { useDispatch } from "react-redux";
 import { setUser } from "./components/feature/ActionSlice";
@@ -41,6 +42,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="login" element={<Login />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order" element={<Order />} />
           <Route
             path="/payment"
             element={

@@ -1,7 +1,7 @@
 import React from "react";
 import CurrencyFormat from "react-currency-format";
 import { useSelector } from "react-redux";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function SubTotal() {
   const Addcart = useSelector((store) => store.action.cart);

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../components/nav/Nav";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CheckOutItem from "../components/checkout/CheckOutItem";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
-
+import axios from "../Axiso";
+import { emptyCart } from "../components/feature/ActionSlice";
+import { db } from "../Pages/firebase";
 function Payment() {
   const username = useSelector((store) => store.customer.username);
   const ProductCart = useSelector((store) => store.action.cart);
@@ -19,12 +21,41 @@ function Payment() {
   const [processing, setProcessing] = useState("");
   const [succeeded, setSucceeded] = useState(false);
   const [disabled, setDisabled] = useState(true);
+  const [clientSecret, setClientSecret] = useState(true);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const style = " p-5 mx-5 gap-5";
 
+  useEffect(() => {
+    // generate the special stripe secret which allows us to charge a customer
+    const getClientSecret = async () => {
+      const response = await axios({
+        method: "post", // Stripe expects the total in a currencies subunits
+        url: `/payments/create?total=${Price * 100}`,
+      });
+      setClientSecret(response.data.clientSecret);
+    };
+    getClientSecret();
+  }, [Price]);
+  console.log(" the secret is >>>", clientSecret);
   async function handleSubmit(e) {
     e.preventDefault();
     setProcessing(true);
-    // const payload = await stripe
+    const payload = await stripe
+      .confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      })
+      .then(({ paymentIntent }) => {
+        // paymentIntent = payment confirmation
+
+        setSucceeded(true);
+        setError(null);
+        setProcessing(false);
+        dispatch(emptyCart());
+        navigate("/order");
+      });
   }
   function handleChange(e) {
     setDisabled(e.empty);

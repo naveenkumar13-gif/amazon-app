@@ -50,7 +50,7 @@ function Nav() {
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/order">
             <div className={SpanStyle}>
               <span className="text-[10px]  text-stone-400   ">Return</span>
               <span className="">Orders</span>
